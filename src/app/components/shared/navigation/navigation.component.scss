@@ -1,0 +1,146 @@
+@import '../../../../assets/styles/globals.scss';
+
+:host {
+  .navbar {
+    padding: $size-20 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    transition: 1s;
+    .navbar__container {
+      .navbar__top {
+        position: relative;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+        max-width: 70.88rem;
+        margin: 0 auto;
+
+        .navbar__logo {
+          width: $size-147;
+          height: $size-45;
+        }
+
+        .navbar__buttons {
+          display: block;
+          margin-left: auto;
+        }
+      }
+
+      .navbar__wrapper {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: -100%;
+        background: black;
+        height: 100vh;
+        width: 100%;
+        padding: 0;
+
+        .navbar__wrapper-links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: $size-42;
+          margin: auto 0 auto 0;
+          height: 100%;
+
+          li {
+            list-style: none;
+            a {
+              position: relative;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+
+            a:before {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: $size-4;
+              background-color: white;
+              bottom: -$size-8;
+              left: 0;
+              transform-origin: right;
+              transform: scaleX(0);
+              transition: transform 0.3s ease-in-out;
+            }
+
+            a:hover::before {
+              transform-origin: left;
+              transform: scaleX(1);
+            }
+
+            .button {
+              transition: transform 0.2s;
+            }
+
+            .button:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+
+      .active {
+        right: 0;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .navbar--color {
+    top: 0;
+    background-color: rgba(0, 0, 0, 1);
+    height: auto;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $desktop-size) {
+    .navbar {
+      display: flex;
+      justify-content: center;
+      height: auto;
+      top: $size-76;
+      background: transparent;
+      margin: auto;
+
+      .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .navbar__top {
+          .navbar__buttons {
+            display: none;
+          }
+        }
+
+        .navbar__wrapper {
+          position: relative;
+          background: transparent;
+          width: 100%;
+          height: auto;
+          right: 0;
+          .navbar__wrapper-links {
+            flex-direction: row;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+          }
+        }
+        .active {
+          transition: none;
+        }
+      }
+    }
+
+    .navbar--color {
+      top: 0;
+      background-color: rgba(0, 0, 0, 1);
+      height: auto;
+      width: 100%;
+    }
+  }
+}

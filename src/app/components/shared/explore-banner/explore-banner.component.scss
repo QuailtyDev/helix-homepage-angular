@@ -1,0 +1,70 @@
+@import '../../../../assets/styles/globals.scss';
+
+:host {
+  .banner {
+    background: url(../../../../assets/images/helix-site-landmark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    .container {
+      padding-top: $size-33;
+      padding-bottom: $size-47;
+      .banner__content {
+        h2 {
+          position: relative;
+          color: white;
+          display: inline;
+        }
+
+        h2:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: $size-6;
+          background-color: white;
+          bottom: -$size-8;
+          left: 0;
+          transform-origin: right;
+          transform: scaleX(0);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        h2:hover::before {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+
+        p {
+          margin: $size-28 0 $size-24 0;
+          color: white;
+        }
+        &-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: $size-20 $size-6;
+          .button {
+            display: inline-block;
+            padding: $size-8 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: $tablet-size) {
+    .banner {
+      .container {
+        .banner__content {
+          p {
+            max-width: $size-598;
+          }
+          &-buttons {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: $size-16;
+            max-width: $size-675;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<header [ngStyle]="{ background: 'url(' + image + ') no-repeat 0 0 / cover' }">
+  <div class="header__overlay" [ngStyle]="{ 'background-color': backgroundOverlayColor }"></div>
+  <mot-navigation> </mot-navigation>
+  <div class="header__wrapper">
+    <div class="container">
+      <div class="header__content">
+        <h1 class="plus color-white">{{ heading }}</h1>
+        <ng-content> </ng-content>
+      </div>
+    </div>
+  </div>
+</header>

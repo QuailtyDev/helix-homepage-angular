@@ -1,0 +1,109 @@
+@import 'sizes';
+@import 'colors';
+
+.button {
+  cursor: pointer;
+  font-family: 'Newcastle Helix';
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size-18;
+  line-height: $size-28;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: $size-8 $size-16;
+  gap: $size-10;
+  border: none;
+  background-color: transparent;
+
+  &.text {
+    padding: 0;
+    gap: 0;
+  }
+  @media only screen and (max-width: $tablet-size) {
+    & {
+      font-size: $size-16;
+    }
+  }
+}
+
+.button.primary {
+  color: white;
+  background: $blue;
+}
+
+.button.secondary {
+  color: black;
+  background-color: transparent;
+  border: 0.06rem solid black;
+  transition: 0.3s;
+  &.opacity {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+.button.secondary.inverted {
+  color: white;
+  background-color: transparent;
+  border: 0.06rem solid white;
+  transition: 0.3s;
+  &.opacity {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  &:hover {
+    background: white;
+    color: black;
+  }
+}
+
+button[disabled] {
+  cursor: default;
+}
+
+.button-arrow-up,
+.button-arrow-down {
+  position: relative;
+  padding: $size-5;
+  margin: $size-30 auto;
+  background: #000;
+  height: $size-50;
+  width: $size-50;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+
+.button-arrow-down:hover {
+  transform: translate3d(0, $size-10, 0);
+}
+
+.button-arrow-up:hover {
+  transform: translate3d(0, -$size-10, 0);
+}
+
+.button-arrow-up::after,
+.button-arrow-down::after {
+  content: '';
+  position: absolute;
+  left: $size-17;
+  z-index: 11;
+  display: block;
+  width: $size-25;
+  height: $size-25;
+  border-top: 0.12rem solid #fff;
+  border-left: 0.12rem solid #fff;
+}
+.button-arrow-up::after {
+  top: $size-20;
+  transform: rotate(45deg);
+}
+
+.button-arrow-down::after {
+  top: $size-10;
+  transform: rotate(225deg);
+}
